@@ -21,10 +21,17 @@ function ExtensionsProvider({ children }) {
     getExtensions();
   }, []);
 
+  function handleRemoveExtension(extensionName) {
+    setExtensions((extensions) =>
+      extensions.filter((extension) => extension.name !== extensionName),
+    );
+  }
+
   return (
     <ExtensionsContext.Provider
       value={{
         extensions,
+        handleRemoveExtension,
       }}
     >
       {children}

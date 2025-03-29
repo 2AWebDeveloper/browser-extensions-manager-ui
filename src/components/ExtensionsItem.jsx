@@ -1,4 +1,8 @@
+import { useExtensions } from "../contexts/ExtensionsContext";
+
 export default function ExtensionsItem({ extension, index }) {
+  const { handleRemoveExtension } = useExtensions();
+
   return (
     <li className="flex flex-col min-h-[198px] p-4.5 bg-neutral-0 border border-neutral-200 rounded-[20px] shadow shadow-neutral-600/10 dark:bg-neutral-800 dark:border-neutral-600">
       <div className="flex items-start gap-3.5 grow">
@@ -14,6 +18,7 @@ export default function ExtensionsItem({ extension, index }) {
       </div>
       <div className="flex items-center justify-between">
         <button
+          onClick={() => handleRemoveExtension(extension.name)}
           className="px-5 py-2 text-neutral-900 border border-neutral-300 rounded-full hover:bg-red-700 hover:text-neutral-0 hover:border-red-700 dark:text-neutral-0 dark:border-neutral-600 dark:hover:bg-red-500 dark:hover:text-neutral-900 dark:hover:border-red-500"
           type="button"
         >
