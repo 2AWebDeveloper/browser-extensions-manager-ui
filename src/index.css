@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: "Noto Sans";
+    src: url(/assets/fonts/NotoSans-Regular.ttf) format(truetype);
+    font-weight: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Noto Sans";
+    src: url(/assets/fonts/NotoSans-Medium.ttf) format(truetype);
+    font-weight: 500;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Noto Sans";
+    src: url(/assets/fonts/NotoSans-Bold.ttf) format(truetype);
+    font-weight: bold;
+    font-display: swap;
+  }
+  body {
+    @apply min-h-screen font-noto-sans bg-light-gradient bg-cover bg-no-repeat dark:bg-dark-gradient;
+  }
+  #root {
+    @apply max-w-[1200px] mx-auto px-4;
+  }
+}
