@@ -6,6 +6,7 @@ const ExtensionsContext = createContext();
 
 function ExtensionsProvider({ children }) {
   const [extensions, setExtensions] = useState([]);
+  const [filterBy, setFilterBy] = useState("All");
 
   useEffect(function () {
     async function getExtensions() {
@@ -40,8 +41,10 @@ function ExtensionsProvider({ children }) {
     <ExtensionsContext.Provider
       value={{
         extensions,
+        filterBy,
         handleRemoveExtension,
         handleChangeExtensionActivity,
+        setFilterBy,
       }}
     >
       {children}
