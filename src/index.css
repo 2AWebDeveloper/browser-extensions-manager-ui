@@ -28,3 +28,9 @@
     @apply max-w-[1200px] mx-auto px-4;
   }
 }
+
+@layer components {
+  header {
+    @apply mt-5 lg:mt-10;
+  }
+}
