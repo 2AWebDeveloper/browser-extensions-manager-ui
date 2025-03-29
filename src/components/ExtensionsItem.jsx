@@ -1,7 +1,8 @@
 import { useExtensions } from "../contexts/ExtensionsContext";
 
 export default function ExtensionsItem({ extension, index }) {
-  const { handleRemoveExtension } = useExtensions();
+  const { handleRemoveExtension, handleChangeExtensionActivity } =
+    useExtensions();
 
   return (
     <li className="flex flex-col min-h-[198px] p-4.5 bg-neutral-0 border border-neutral-200 rounded-[20px] shadow shadow-neutral-600/10 dark:bg-neutral-800 dark:border-neutral-600">
@@ -30,6 +31,7 @@ export default function ExtensionsItem({ extension, index }) {
             htmlFor={`toggle-btn-${index + 1}`}
           >
             <input
+              onChange={() => handleChangeExtensionActivity(extension.name)}
               type="checkbox"
               className="toggle-button-checkbox"
               id={`toggle-btn-${index + 1}`}

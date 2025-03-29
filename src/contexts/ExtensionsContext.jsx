@@ -26,12 +26,22 @@ function ExtensionsProvider({ children }) {
       extensions.filter((extension) => extension.name !== extensionName),
     );
   }
+  function handleChangeExtensionActivity(extensionName) {
+    setExtensions((extensions) =>
+      extensions.map((extension) =>
+        extension.name === extensionName
+          ? { ...extension, isActive: !extension.isActive }
+          : extension,
+      ),
+    );
+  }
 
   return (
     <ExtensionsContext.Provider
       value={{
         extensions,
         handleRemoveExtension,
+        handleChangeExtensionActivity,
       }}
     >
       {children}
